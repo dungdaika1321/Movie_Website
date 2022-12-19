@@ -1,0 +1,117 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+    transition-timing-function: ease-in;
+    transition: all 0.4s;
+    user-select: none;
+  
+  }
+  
+  .scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: var(--default-layout-header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f1111;
+    transition-timing-function: ease-in;
+    transition: all 0.4s;
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--default-layout-width);
+    padding: 0 20px;
+  }
+  
+  .navbar__left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__left .nav-item__link {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 0 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+  
+     &.active  {
+      color: var(--primary-color)
+  
+     }
+  }
+  
+  .navbar__left .nav-item:first-of-type {
+    margin-left: 60px;
+  }
+  .logo-link {
+    width: 88px;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__right .navbar-icon {
+    font-size: 2.8rem;
+    margin-right: 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  .user-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .user-section .user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 4px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  .user-section .arrow-icon {
+    font-size: 2.4rem;
+    color: #fff;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
