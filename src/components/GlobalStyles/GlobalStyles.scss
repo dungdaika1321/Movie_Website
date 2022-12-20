@@ -4,13 +4,20 @@
 
 // Variables
 :root {
-    --font-family: 'Montserrat', sans-serif;
+    --font-family: 'Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif';
     --primary-color: #e50914;
 
     --default-layout-header-height: 68px;
     --default-layout-width: 1280px;
     --background-color-theme-dark: #141414;
 }
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 400;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff) format('woff')
+  }
 
 
 * {
