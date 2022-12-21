@@ -1,12 +1,53 @@
-import classNames from 'classnames/bind';
-import styles from './Movies.module.scss';
 
-const cx = classNames.bind(styles);
+import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 
-function Movies() {
+
+import Header from '~/layouts/common/Header'
+import Categories from '~/components/Category/Categories'
+import Banner from '~/layouts/common/Banner'
+import requests from '~/service/requests'
+
+
+function Movies({ title, setShowModal }) {
+
+    //change title with_genres
+    useEffect(() => {
+        document.title = 'Movies - Netflix'
+    }, [])
+
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+        }
+
+    }
+
     return (
-        <h1>Movies Page</h1>
+
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+        >
+            <Header />
+            <Banner
+                fetchBannerData={requests.fetchComedyMovies}
+                setShowModal={setShowModal}
+                type="movies"
+            />
+            <Categories
+                fetchCategories={requests.fetchMoviesGenres}
+                type="movies"
+            />
+
+        </motion.div>
+
     )
 }
 
-export default Movies;
+export default Movies

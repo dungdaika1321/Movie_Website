@@ -1,8 +1,11 @@
 
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 import Banner from '~/layouts/common/Banner';
 import requests from '~/service/requests';
+
+
 
 
 
@@ -17,6 +20,9 @@ const containerVariants = {
 }
 
 function Home() {
+  useEffect(() => {
+    document.title = `Home - Netflix`
+  })
   return (
     <motion.div
       variants={containerVariants}
@@ -24,7 +30,7 @@ function Home() {
       animate="visible"
       exit="hidden"
     >
-    <Banner fetchBannerData={requests.fetchComedyMovies} />
+      <Banner fetchBannerData={requests.fetchComedyMovies} />
     </motion.div>
 
   )

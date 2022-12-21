@@ -33,27 +33,32 @@ function Banner({ fetchBannerData, type }) {
         async function fetchData() {
 
             //handle filter genre--> take data from banner
-            var url
-            if (type === "movies" || type === undefined) {
-                if (fetchBannerData.includes("%2C")) {
-                    url = fetchBannerData.replace(`%2C${genreIds.selectedMovieGenre}`, "")
+            try {
+                var url
+                if (type === "movies" || type === undefined) {
+                    if (fetchBannerData.includes("%2C")) {
+                        url = fetchBannerData.replace(`%2C${genreIds.selectedMovieGenre}`, "")
+                    } else {
+                        url = fetchBannerData.concat(`%2C${genreIds.selectedMovieGenre}`)
+                    }
                 } else {
-                    url = fetchBannerData.concat(`%2C${genreIds.selectedMovieGenre}`)
+                    if (fetchBannerData.includes("%2C")) {
+                        url = fetchBannerData.replace(`%2C${genreIds.selectedGenre}`, "")
+                    } else {
+                        url = fetchBannerData.concat(`%2C${genreIds.selectedGenre}`)
+                    }
                 }
-            } else {
-                if (fetchBannerData.includes("%2C")) {
-                    url = fetchBannerData.replace(`%2C${genreIds.selectedGenre}`, "")
-                } else {
-                    url = fetchBannerData.concat(`%2C${genreIds.selectedGenre}`)
-                }
-            }
 
-            const request = await httpRequest.get(url)
-            //set random api movie to banner
-            setMovie(request.results[
-                Math.floor(Math.random() * (request.results.length - 1))
-            ])
-            return request;
+                const request = await httpRequest.get(url)
+                //set random api movie to banner
+                setMovie(request.results[
+                    Math.floor(Math.random() * (request.results.length - 1))
+                ])
+                return request;
+            } catch (error) {
+                console.error(error)
+
+            }
         }
         fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,17 +67,22 @@ function Banner({ fetchBannerData, type }) {
     //get trailerUrl
     useEffect(() => {
         async function fetchData() {
-            const movieDetail = `/movie/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
-            const tvDetail = `/tv/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
+            try {
+                const movieDetail = `/movie/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
+                const tvDetail = `/tv/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
 
-            let fetchDateType;
-            (type === "movies" || type === undefined) ? fetchDateType = movieDetail : fetchDateType = tvDetail
+                let fetchDateType;
+                (type === "movies" || type === undefined) ? fetchDateType = movieDetail : fetchDateType = tvDetail
 
-            var request = await httpRequest.get(fetchDateType)
-            let trailerIndex = request.videos.results.findIndex(v => v.type === "Trailer")
+                var request = await httpRequest.get(fetchDateType)
+                let trailerIndex = request.videos.results.findIndex(v => v.type === "Trailer")
 
-            setDelayUrl(request.videos.results[trailerIndex])
-            return request;
+                setDelayUrl(request.videos.results[trailerIndex])
+                return request;
+            } catch (error) {
+                console.error(error)
+
+            }
         }
         fetchData();
     }, [API_KEY, movie.id, type])
@@ -142,7 +152,7 @@ function Banner({ fetchBannerData, type }) {
         <div className={cx('banner')}
             style={{
                 backgroundImage: `url(${baseUrl}${movie?.backdrop_path})`,
-               
+
             }}
         >
             {trailerUrl && <div className={cx('banner-youtube')}
