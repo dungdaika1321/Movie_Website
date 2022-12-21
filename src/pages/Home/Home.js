@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
 import Banner from '~/layouts/common/Banner';
+import Footer from '~/layouts/common/Footer';
 import requests from '~/service/requests';
 
 
@@ -31,6 +32,7 @@ function Home() {
       exit="hidden"
     >
       <Banner fetchBannerData={requests.fetchComedyMovies} />
+      <Footer/>
     </motion.div>
 
   )

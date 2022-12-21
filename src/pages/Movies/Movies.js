@@ -7,6 +7,7 @@ import Header from '~/layouts/common/Header'
 import Categories from '~/components/Category/Categories'
 import Banner from '~/layouts/common/Banner'
 import requests from '~/service/requests'
+import Footer from '~/layouts/common/Footer'
 
 
 function Movies({ title, setShowModal }) {
@@ -44,6 +45,8 @@ function Movies({ title, setShowModal }) {
                 fetchCategories={requests.fetchMoviesGenres}
                 type="movies"
             />
+
+            <Footer/>
 
         </motion.div>
 

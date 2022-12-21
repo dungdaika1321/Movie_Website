@@ -5,6 +5,7 @@ import Header from '~/layouts/common/Header'
 import Categories from '~/components/Category/Categories'
 import Banner from '~/layouts/common/Banner'
 import requests from '~/service/requests'
+import Footer from '~/layouts/common/Footer'
 
 
 
@@ -44,6 +45,7 @@ function TvShows({ title, setShowModal }) {
         fetchCategories={requests.fetchTVShowGenres}
         type="movies"
       />
+      <Footer/>
       
     </motion.div>
   )

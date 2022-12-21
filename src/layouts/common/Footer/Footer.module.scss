@@ -1,0 +1,85 @@
+.footer-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color-theme-dark);
+  color: #808080;
+
+
+  
+}
+
+.footer-inner {
+    // position: relative;
+    // width: 100%;
+    
+    // color: #808080;
+    // padding: 20px auto ;
+    // max-width: 980px;
+    // padding: 0 4%;
+    // left: 0;
+    // right:0;
+    // width: 100%;
+   
+    // user-select: none;
+    // background-color: #141414;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 4%;
+    user-select: none;
+
+}
+
+.footer-socialLink {
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.footer-socialLink__item:hover {
+  transform: scale(1.1);
+  display: inline-block;
+}
+
+.content-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.content-item {
+  margin-bottom: 15px;
+  font-size: 0.9vw;
+  cursor: pointer;
+}
+
+.footer-service-btn {
+  background: transparent;
+  border: 1px solid grey;
+  width: fit-content;
+  color: grey;
+  font-size: 13px;
+  margin-bottom: 20px;
+  padding: 0.5em;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.content-item:hover {
+  text-decoration: underline;
+}
+
+.footer-copyRight {
+  font-size: 11px;
+  margin-bottom: 15px;
+}
