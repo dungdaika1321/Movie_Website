@@ -13,11 +13,11 @@ function TvShows({ title, setShowModal }) {
 
   const [loading, setLoading] = useState(false)
 
-  //change title with_genres
+  //change title when change page
   useEffect(() => {
-    document.title = `TvShows - Netflix`
+    document.title = `TV Shows - Netflix`
   }, [title])
-
+  
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -73,8 +73,6 @@ function TvShows({ title, setShowModal }) {
             </motion.div>
           )
       }
-
-
     </motion.div>
   )
 }

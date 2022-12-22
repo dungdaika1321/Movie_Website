@@ -48,7 +48,6 @@ function Categories({ type, fetchCategories }) {
         genreSelect.setCateName(name)
         genreSelect.setSelectedGenre(value);
         genreSelect.setCateBannerChange(true);
-        document.title = `${name} - Movies`
     }
 
     //Movies
@@ -67,10 +66,23 @@ function Categories({ type, fetchCategories }) {
         genreSelect.setCateMoviesName(name)
         genreSelect.setSelectedMovieGenre(value);
         genreSelect.setCateBannerMoviesChange(true)
-        document.title = `${name} - Movies`;
 
     }
-    // handle change title with_genres
+    // hadle change title when select genre
+
+    const handleTitleChange = () => {
+        if (type === "tvShows") {
+            document.title = `${genreSelect.cateName} - Movies`
+        } else if (type === "movies") {
+            document.title = `${genreSelect.cateMoviesName} - Movies`
+        }
+    }
+
+    useEffect(() => {
+        handleTitleChange()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [genreSelect.cateName, genreSelect.cateMoviesName])
+
 
 
     return (

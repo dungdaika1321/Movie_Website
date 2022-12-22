@@ -21,6 +21,7 @@ function Home() {
 
     const [loading, setLoading] = useState(false)
 
+    //change title when change page
     useEffect(() => {
         document.title = `Home - Netflix`
     })

@@ -14,10 +14,10 @@ function Movies({ title, setShowModal }) {
 
     const [loading, setLoading] = useState(false)
 
-    //change title with_genres
+    //change title when change page 
     useEffect(() => {
-        document.title = 'Movies - Netflix'
-    }, [])
+        document.title = `Movies - Netflix`
+    }, [title])
 
     const containerVariants = {
         hidden: {
