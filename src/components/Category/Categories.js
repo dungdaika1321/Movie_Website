@@ -68,22 +68,29 @@ function Categories({ type, fetchCategories }) {
         genreSelect.setCateBannerMoviesChange(true)
 
     }
-    // hadle change title when select genre
+    // hadle change title when select genre, no genre selected --> default title
 
     const handleTitleChange = () => {
         if (type === "tvShows") {
-            document.title = `${genreSelect.cateName} - Movies`
+            if (genreSelect.cateBannerChange === false) {
+                document.title = `TV Shows - Netflix`
+            } else {
+                document.title = `${genreSelect.cateName} - Netflix`
+            }
         } else if (type === "movies") {
-            document.title = `${genreSelect.cateMoviesName} - Movies`
+            if (genreSelect.cateBannerMoviesChange === false) {
+                document.title = `Movies - Netflix`
+            } else {
+                document.title = `${genreSelect.cateMoviesName} - Netflix`
+            }
         }
     }
+
 
     useEffect(() => {
         handleTitleChange()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [genreSelect.cateName, genreSelect.cateMoviesName])
-
-
 
     return (
         <div>
