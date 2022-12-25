@@ -41,7 +41,7 @@ function Footer() {
                 </button>
 
                 <div className={cx('footer-copyRight')}>
-                    @ 1997-2021 Netflix, Inc.
+                    @  Copy-Right by <a href="https://github.com/ngdung1321" target="_blank" rel="noreferrer" >Nguyen Duc Dung</a>
                 </div>
             </div>
         </div>

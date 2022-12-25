@@ -6,10 +6,12 @@
 :root {
     --font-family: 'Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif';
     --primary-color: #e50914;
+    --white-color: #fff;
 
     --default-layout-header-height: 68px;
     --default-layout-width: 1280px;
     --background-color-theme-dark: #141414;
+    --footer-color: #808080;
 }
 
 @font-face {
@@ -37,8 +39,9 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
-    color: var(--text-color);
+    color: var(--white-color);  
     overflow-y: overlay;
+    background-color: var(--background-color-theme-dark);
 }
 
 

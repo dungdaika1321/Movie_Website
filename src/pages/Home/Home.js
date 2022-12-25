@@ -6,6 +6,7 @@ import HashLoader from 'react-spinners/HashLoader';
 import Banner from '~/layouts/common/Banner';
 import Footer from '~/layouts/common/Footer';
 import requests from '~/service/requests';
+import Row from '~/components/Row';
 
 const containerVariants = {
     hidden: {
@@ -17,7 +18,7 @@ const containerVariants = {
 
 }
 
-function Home() {
+function Home({ title, setShowModal }) {
 
     const [loading, setLoading] = useState(false)
 
@@ -60,6 +61,56 @@ function Home() {
 
                     >
                         <Banner fetchBannerData={requests.fetchComedyMovies} />
+                        <Row
+                            title="Top Rated"
+                            fetchUrl={requests.fetchTopRated}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Action Movies"
+                            fetchUrl={requests.fetchActionMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Comedy Movies"
+                            fetchUrl={requests.fetchComedyMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Horror Movies"
+                            fetchUrl={requests.fetchHorrorMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title= "Cartoon Movies"
+                            fetchUrl={requests.fetchTVAnimation}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+
+                        />
+                        <Row
+                            title="Romance Movies"
+                            fetchUrl={requests.fetchRomanceMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Documentaries"
+                            fetchUrl={requests.fetchDocumentaries}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
                         <Footer />
                     </motion.div>
                 )}
