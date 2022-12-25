@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import HashLoader from 'react-spinners/HashLoader'
 import Categories from '~/components/Category/Categories'
+import Row from '~/components/Row'
 import Banner from '~/layouts/common/Banner'
 import Footer from '~/layouts/common/Footer'
 import Header from '~/layouts/common/Header'
@@ -17,7 +18,7 @@ function TvShows({ title, setShowModal }) {
   useEffect(() => {
     document.title = `TV Shows - Netflix`
   }, [title])
-  
+
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -68,6 +69,34 @@ function TvShows({ title, setShowModal }) {
               <Categories
                 fetchCategories={requests.fetchTVShowGenres}
                 type="movies"
+              />
+              <Row
+                title="TV Shows Mystery"
+                fetchUrl={requests.fetchTVMystery}
+                fetchGenres={requests.fetchTVShowGenres}
+                setShowModal={setShowModal}
+                type="tvShows"
+              />
+              <Row
+                title="TV Shows Action"
+                fetchUrl={requests.fetchTVAction}
+                fetchGenres={requests.fetchTVShowGenres}
+                setShowModal={setShowModal}
+                type="tvShows"
+              />
+              <Row
+                title="TV Shows Animation"
+                fetchUrl={requests.fetchTVAnimation}
+                fetchGenres={requests.fetchTVShowGenres}
+                setShowModal={setShowModal}
+                type="tvShows"
+              />
+              <Row
+                title="TV Shows Comedy"
+                fetchUrl={requests.fetchTVComedy}
+                fetchGenres={requests.fetchTVShowGenres}
+                setShowModal={setShowModal}
+                type="tvShows"
               />
               <Footer />
             </motion.div>

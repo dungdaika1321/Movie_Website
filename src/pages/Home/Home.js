@@ -60,7 +60,7 @@ function Home({ title, setShowModal }) {
                         exit="hidden"
 
                     >
-                        <Banner fetchBannerData={requests.fetchComedyMovies} />
+                        <Banner fetchBannerData={requests.fetchActionMovies} />
                         <Row
                             title="Top Rated"
                             fetchUrl={requests.fetchTopRated}

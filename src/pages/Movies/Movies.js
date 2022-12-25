@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import HashLoader from 'react-spinners/HashLoader'
 import Categories from '~/components/Category/Categories'
+import Row from '~/components/Row'
 import Banner from '~/layouts/common/Banner'
 import Footer from '~/layouts/common/Footer'
 import Header from '~/layouts/common/Header'
@@ -72,9 +73,35 @@ function Movies({ title, setShowModal }) {
                             fetchCategories={requests.fetchMoviesGenres}
                             type="movies"
                         />
-
+                        <Row
+                            title="Action Movies"
+                            fetchUrl={requests.fetchActionMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Comedy Movies"
+                            fetchUrl={requests.fetchComedyMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Horror Movies"
+                            fetchUrl={requests.fetchHorrorMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
+                        <Row
+                            title="Romance Movies"
+                            fetchUrl={requests.fetchRomanceMovies}
+                            fetchGenres={requests.fetchMoviesGenres}
+                            setShowModal={setShowModal}
+                            type="movies"
+                        />
                         <Footer />
-
                     </motion.div>
                 )}
         </motion.div>
